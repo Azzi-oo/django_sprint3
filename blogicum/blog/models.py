@@ -34,7 +34,7 @@ class Category(BaseModel):
 
     class Meta:
         verbose_name = 'категория'
-        verbose_name_plural = 'Категория'
+        verbose_name_plural = 'Категории'
 
 
 class Post(BaseModel):
