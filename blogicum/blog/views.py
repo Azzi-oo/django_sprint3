@@ -9,11 +9,10 @@ def index(request):
         'category',
         'location',
         'author'
-    ).filter(
-        pub_date__lte=timezone.now(),
-        is_published=True,
-        category__is_published=True
-    )[0:5]
+    ).order_by(
+        '-pub_date',
+        'title',
+    )[:5]
     context = {'posts': posts}
     return render(request, template, context)
 
