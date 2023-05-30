@@ -59,5 +59,5 @@ def category_posts(request, category_slug):
         ),
         category__is_published=True
     )
-    context = {'category': category, 'posts': post_list}
+    context = {'category': category, 'post_list': post_list}
     return render(request, template, context)
