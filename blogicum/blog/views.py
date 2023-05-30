@@ -41,9 +41,14 @@ def post_detail(request, id):
 def category_posts(request, category_slug):
     template = 'blog/category.html'
     category = get_object_or_404(
-        Category,
-        slug=category_slug,
-        is_published=True)
+        Category.objects.values(
+            'title',
+            'description',
+        ).filter(
+            slug=category_slug,
+            is_published=True
+        )
+    )
     post_list = get_list_or_404(
         Post.objects.select_related(
             'category',
