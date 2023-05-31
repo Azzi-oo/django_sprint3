@@ -7,7 +7,6 @@ datenow = timezone.now()
 
 
 def index(request):
-    template = 'blog/index.html'
     post_list = Post.objects.select_related(
         'category',
         'location',
@@ -20,8 +19,7 @@ def index(request):
         '-pub_date',
         'title',
     )[:5]
-    context = {'post_list': post_list}
-    return render(request, template, context)
+    return render(request, post_list)
 
 
 def post_detail(request, id):
