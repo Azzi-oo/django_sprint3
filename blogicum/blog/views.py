@@ -19,7 +19,7 @@ def index(request):
         '-pub_date',
         'title',
     )[:5]
-    return render(request, post_list)
+    return render(request)
 
 
 def post_detail(request, id):
