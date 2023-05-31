@@ -19,7 +19,8 @@ def index(request):
         '-pub_date',
         'title',
     )[:5]
-    return render(request)
+    context = {'post_list': post_list}
+    return render(request, 'blog/index.html', context)
 
 
 def post_detail(request, id):
